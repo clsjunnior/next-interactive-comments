@@ -42,12 +42,11 @@ Using Node to build a functional API using Prisma ORM with Postgres database to 
 | Component        | Develop | Testing |
 |------------------|:--------------:|:------:|
 | Button           |        ✔️        |   ✔️   |
-| Paragraph        |        ⬜️       |   ⬜️  |
-| Avatar           |        ⬜️       |   ⬜️  |
+| Avatar           |        ✔️        |   ✔️   |
 | Textarea Input   |        ⬜️       |   ⬜️  |
 | Card             |        ⬜️       |   ⬜️  |
 | Badge            |        ⬜️       |   ⬜️  |
-| Icon             |        ⬜️       |   ⬜️  |
+| Icon             |        ✔️        |   ✔️   |
 
 ### Molecules
 

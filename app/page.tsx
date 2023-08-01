@@ -1,10 +1,38 @@
+'use client'
+
+import AvatarAtom from '@/components/atoms/avatarAtom/avatarAtom.component'
+import ButtonAtom from '@/components/atoms/buttonAtom/buttonAtom.component'
+import Icon from '@/components/atoms/iconAtom/iconAtom.component'
 
 export default function Home() {
+  const handleClick = () => {}
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo omnis in autem cumque, recusandae, dolor magni, ipsa possimus officiis hic inventore! Officia modi tenetur nostrum ipsa? At atque quia similique!
-			</p>
+    <main className="flex flex-col items-start justify-between p-24">
+      <div className="flex flex-col gap-6">
+        <div className="flex gap-2">
+          <ButtonAtom colorType="grayish" onClick={handleClick}>
+            Click Me
+          </ButtonAtom>
+          <ButtonAtom colorType="blue" onClick={handleClick}>
+            Click Me
+          </ButtonAtom>
+          <ButtonAtom colorType="danger" onClick={handleClick}>
+            Click Me
+          </ButtonAtom>
+          <ButtonAtom onClick={handleClick} isLink>
+            Click Me
+          </ButtonAtom>
+        </div>
+        <AvatarAtom imageUrl={'./avatars/image-amyrobson.png'} altText="alt" />
+        <div className="flex items-center gap-4">
+          <Icon type="delete" width={14} height={14} fill="#ED6368" />
+          <Icon type="edit" width={14} height={14} fill="#5357B6" />
+          <Icon type="minus" width={11} height={3} fill="#C5C6EF" />
+          <Icon type="plus" width={11} height={11} fill="#C5C6EF" />
+          <Icon type="reply" width={14} height={13} fill="#5357B6" />
+        </div>
+      </div>
     </main>
   )
 }
