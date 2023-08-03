@@ -1,4 +1,15 @@
-- name: Code Coverage Summary
-  uses: irongut/CodeCoverageSummary@v1.3.0
-  with:
-    filename: coverage.cobertura.xml
+name: Code Coverage Workflow
+on: [push]
+jobs:
+  code-coverage:
+    name: Generate Code Coverage Summary
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Generate Code Coverage Summary
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage.cobertura.xml
