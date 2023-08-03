@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --fix && prettier -w",
     "test": "jest --watch",
-    "test:ci": "jest --ci",
+    "test:ci": "jest --ci --coverage",
     "prisma:studio": "dotenv -e .env.local -- npx prisma studio",
     "prepare": "husky install"
   },
