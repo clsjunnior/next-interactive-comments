@@ -1,6 +1,7 @@
 'use client'
 
 import AvatarAtom from '@/components/atoms/avatarAtom/avatarAtom.component'
+import BadgeAtom from '@/components/atoms/badgeAtom/badgeAtom.component'
 import ButtonAtom from '@/components/atoms/buttonAtom/buttonAtom.component'
 import Icon from '@/components/atoms/iconAtom/iconAtom.component'
 import TextareaAtom from '@/components/atoms/textareaAtom/textareaAtom.component'
@@ -35,6 +36,9 @@ export default function Home() {
         </div>
         <div className="flex bg-white p-6 rounded-lg">
           <TextareaAtom />
+        </div>
+        <div className="flex bg-white p-6 rounded-lg">
+          <BadgeAtom>Badge</BadgeAtom>
         </div>
       </div>
     </main>

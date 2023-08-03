@@ -43,9 +43,9 @@ Using Node to build a functional API using Prisma ORM with Postgres database to 
 |------------------|:--------------:|:------:|
 | Button           |        ✔️        |   ✔️   |
 | Avatar           |        ✔️        |   ✔️   |
-| Textarea Input   |        ⬜️       |   ⬜️  |
+| Textarea Input   |        ✔️        |   ✔️   |
 | Card             |        ⬜️       |   ⬜️  |
-| Badge            |        ⬜️       |   ⬜️  |
+| Badge            |        ✔️        |   ✔️   |
 | Icon             |        ✔️        |   ✔️   |
 
 ### Molecules
