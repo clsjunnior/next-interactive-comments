@@ -1,5 +1,7 @@
 # Frontend Mentor - Interactive comments section solution
 
+[![codecov](https://codecov.io/gh/clsjunnior/next-interactive-comments/branch/main/graph/badge.svg?token=A3ZX7NC2U1)](https://codecov.io/gh/clsjunnior/next-interactive-comments)
+
 This is a solution to the [Interactive comments section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
@@ -90,10 +92,6 @@ Using Node to build a functional API using Prisma ORM with Postgres database to 
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 ## Author
 
