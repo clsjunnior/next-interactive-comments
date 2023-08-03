@@ -3,6 +3,7 @@
 import AvatarAtom from '@/components/atoms/avatarAtom/avatarAtom.component'
 import BadgeAtom from '@/components/atoms/badgeAtom/badgeAtom.component'
 import ButtonAtom from '@/components/atoms/buttonAtom/buttonAtom.component'
+import CardAtom from '@/components/atoms/cardAtom/cardAtom.component'
 import Icon from '@/components/atoms/iconAtom/iconAtom.component'
 import TextareaAtom from '@/components/atoms/textareaAtom/textareaAtom.component'
 
@@ -34,12 +35,18 @@ export default function Home() {
           <Icon type="plus" width={11} height={11} fill="#C5C6EF" />
           <Icon type="reply" width={14} height={13} fill="#5357B6" />
         </div>
-        <div className="flex bg-white p-6 rounded-lg">
+        <div className="flex bg-white p-2">
           <TextareaAtom />
         </div>
-        <div className="flex bg-white p-6 rounded-lg">
+        <div className="flex bg-white p-2 ">
           <BadgeAtom>Badge</BadgeAtom>
         </div>
+        <CardAtom>
+          <div>
+            <h2 className="text-xl font-semibold mb-2">Card Title</h2>
+            <p className="text-gray-600">This is the content of the card.</p>
+          </div>
+        </CardAtom>
       </div>
     </main>
   )
