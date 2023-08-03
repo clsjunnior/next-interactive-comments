@@ -3,6 +3,7 @@
 import AvatarAtom from '@/components/atoms/avatarAtom/avatarAtom.component'
 import ButtonAtom from '@/components/atoms/buttonAtom/buttonAtom.component'
 import Icon from '@/components/atoms/iconAtom/iconAtom.component'
+import TextareaAtom from '@/components/atoms/textareaAtom/textareaAtom.component'
 
 export default function Home() {
   const handleClick = () => {}
@@ -31,6 +32,9 @@ export default function Home() {
           <Icon type="minus" width={11} height={3} fill="#C5C6EF" />
           <Icon type="plus" width={11} height={11} fill="#C5C6EF" />
           <Icon type="reply" width={14} height={13} fill="#5357B6" />
+        </div>
+        <div className="flex bg-white p-6 rounded-lg">
+          <TextareaAtom />
         </div>
       </div>
     </main>
