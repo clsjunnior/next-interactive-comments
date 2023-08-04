@@ -23,7 +23,7 @@ describe('AvatarAtom', () => {
     const avatarImage = container.querySelector('img')
 
     expect(avatarImage).toHaveClass(
-      'inline-block h-12 w-12 rounded-full ring-2 ring-white'
+      'inline-block h-10 w-10 rounded-full ring-2 ring-white'
     )
   })
 })
