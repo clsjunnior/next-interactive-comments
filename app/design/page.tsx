@@ -7,8 +7,10 @@ import CardAtom from '@/components/atoms/cardAtom/cardAtom.component'
 import IconAtom from '@/components/atoms/iconAtom/iconAtom.component'
 import TextareaAtom from '@/components/atoms/textareaAtom/textareaAtom.component'
 import ButtonIconMolecule from '@/components/molecules/buttonIconMolecule/buttonIconMolecule.component'
+import ModalMolecule from '@/components/molecules/modalMolecule/modalMolecule.component'
 import UserLabelMolecule from '@/components/molecules/userLabelMolecule/userLabelMolecule.component'
 import ms from 'ms'
+import { useState } from 'react'
 
 const Atoms = () => {
   const handleClick = () => {}
@@ -53,6 +55,15 @@ const Atoms = () => {
 }
 
 const Molecules = () => {
+  const [show, setShow] = useState(false)
+  const handleModalClose = () => {
+    setShow(false)
+  }
+  const handleModalConfirm = () => {
+    console.log('Do something...')
+    handleModalClose()
+  }
+
   return (
     <>
       <div className="flex bg-white p-2 gap-4">
@@ -79,6 +90,21 @@ const Molecules = () => {
         >
           Delete
         </ButtonIconMolecule>
+      </div>
+
+      <div className="flex bg-white p-2 gap-4">
+        <ButtonAtom colorType="grayish" onClick={() => setShow(true)}>
+          Open Confirm Modal
+        </ButtonAtom>
+        <ModalMolecule
+          show={show}
+          title="Delete Comment"
+          message="Are you sure you want to delete this comment? This will remove the comment and cant be undone."
+          confirmationText="Yes, Delete"
+          cancelText="No, cancel"
+          handleClose={handleModalClose}
+          handleConfirm={handleModalConfirm}
+        />
       </div>
     </>
   )

@@ -10,6 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const ButtonAtom: React.FC<ButtonProps> = ({
   colorType = 'blue',
   isLink = false,
+  className,
   children,
   ...rest
 }) => {
@@ -28,7 +29,7 @@ const ButtonAtom: React.FC<ButtonProps> = ({
           'bg-soft-red': colorType === 'danger',
           'bg-grayish-blue': colorType === 'grayish',
         },
-    rest.className
+    className
   )
 
   return (
