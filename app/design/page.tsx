@@ -4,8 +4,9 @@ import AvatarAtom from '@/components/atoms/avatarAtom/avatarAtom.component'
 import BadgeAtom from '@/components/atoms/badgeAtom/badgeAtom.component'
 import ButtonAtom from '@/components/atoms/buttonAtom/buttonAtom.component'
 import CardAtom from '@/components/atoms/cardAtom/cardAtom.component'
-import Icon from '@/components/atoms/iconAtom/iconAtom.component'
+import IconAtom from '@/components/atoms/iconAtom/iconAtom.component'
 import TextareaAtom from '@/components/atoms/textareaAtom/textareaAtom.component'
+import ButtonIconMolecule from '@/components/molecules/buttonIconMolecule/buttonIconMolecule.component'
 import UserLabelMolecule from '@/components/molecules/userLabelMolecule/userLabelMolecule.component'
 import ms from 'ms'
 
@@ -29,11 +30,11 @@ const Atoms = () => {
       </div>
       <AvatarAtom imageUrl={'./avatars/image-amyrobson.png'} altText="alt" />
       <div className="flex items-center gap-4">
-        <Icon type="delete" width={14} height={14} fill="#ED6368" />
-        <Icon type="edit" width={14} height={14} fill="#5357B6" />
-        <Icon type="minus" width={11} height={3} fill="#C5C6EF" />
-        <Icon type="plus" width={11} height={11} fill="#C5C6EF" />
-        <Icon type="reply" width={14} height={13} fill="#5357B6" />
+        <IconAtom type="delete" width={14} height={14} fill="#ED6368" />
+        <IconAtom type="edit" width={14} height={14} fill="#5357B6" />
+        <IconAtom type="minus" width={11} height={3} fill="#C5C6EF" />
+        <IconAtom type="plus" width={11} height={11} fill="#C5C6EF" />
+        <IconAtom type="reply" width={14} height={13} fill="#5357B6" />
       </div>
       <div className="flex bg-white p-2">
         <TextareaAtom />
@@ -65,6 +66,19 @@ const Molecules = () => {
           imageUrl="./avatars/image-juliusomo.png"
           createdAt={new Date(new Date().getTime() - ms('1 week'))}
         />
+      </div>
+      <div className="flex bg-white p-2 gap-4">
+        <ButtonIconMolecule
+          icon={{ type: 'reply', fill: '#5357B6', width: 14, height: 13 }}
+        >
+          Reply
+        </ButtonIconMolecule>
+        <ButtonIconMolecule
+          colorType="danger"
+          icon={{ type: 'delete', fill: '#ED6368', width: 14, height: 14 }}
+        >
+          Delete
+        </ButtonIconMolecule>
       </div>
     </>
   )
