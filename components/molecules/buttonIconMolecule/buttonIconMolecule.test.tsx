@@ -24,4 +24,32 @@ describe('ButtonIconMolecule', () => {
     expect(iconElement).toBeInTheDocument()
     expect(buttonTextElement).toBeInTheDocument()
   })
+
+  it('Should render only the icon when onlyIcon is true', () => {
+    const { getByTestId, queryByText } = render(
+      <ButtonIconMolecule icon={mockIconProps} onlyIcon>
+        Icon Only
+      </ButtonIconMolecule>
+    )
+
+    const buttonElement = getByTestId('buttonAtom')
+    const buttonText = queryByText('Icon Only')
+
+    expect(buttonElement).toBeInTheDocument()
+    expect(buttonText).toBeNull()
+  })
+
+  it('Should apply custom styles when customStyle is provided', () => {
+    const { getByTestId } = render(
+      <ButtonIconMolecule
+        icon={mockIconProps}
+        customStyle="text-xl border border-gray-500"
+      >
+        Custom Style
+      </ButtonIconMolecule>
+    )
+
+    const buttonElement = getByTestId('buttonAtom')
+    expect(buttonElement).toHaveClass('text-xl border border-gray-500')
+  })
 })

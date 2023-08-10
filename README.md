@@ -55,10 +55,10 @@ Using Node to build a functional API using Prisma ORM with Postgres database to 
 | Component        | Develop        | Testing |
 |------------------|:--------------:|:------: |
 | User label       |       ✔️        |    ✔️    |
-| Modal            |       ⬜️       |    ⬜️   |
+| Modal            |       ✔️        |    ✔️    |
 | Icon Button      |       ✔️        |    ✔️    |
-| Score Button     |       ⬜️       |    ⬜️   |
-| Comment Input     |       ⬜️       |    ⬜️   |
+| Score Button     |       ✔️        |    ✔️    |
+| Comment Input    |       ⬜️       |    ⬜️   |
 
 ### Organisms
 

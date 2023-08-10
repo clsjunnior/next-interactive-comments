@@ -8,6 +8,7 @@ import IconAtom from '@/components/atoms/iconAtom/iconAtom.component'
 import TextareaAtom from '@/components/atoms/textareaAtom/textareaAtom.component'
 import ButtonIconMolecule from '@/components/molecules/buttonIconMolecule/buttonIconMolecule.component'
 import ModalMolecule from '@/components/molecules/modalMolecule/modalMolecule.component'
+import ScoreButtonMolecule from '@/components/molecules/scoreButtonMolecule/scoreButtonMolecule.component'
 import UserLabelMolecule from '@/components/molecules/userLabelMolecule/userLabelMolecule.component'
 import ms from 'ms'
 import { useState } from 'react'
@@ -56,6 +57,7 @@ const Atoms = () => {
 
 const Molecules = () => {
   const [show, setShow] = useState(false)
+  const [counter, setCounter] = useState(10)
   const handleModalClose = () => {
     setShow(false)
   }
@@ -104,6 +106,14 @@ const Molecules = () => {
           cancelText="No, cancel"
           handleClose={handleModalClose}
           handleConfirm={handleModalConfirm}
+        />
+      </div>
+
+      <div className="flex bg-white p-2 gap-4">
+        <ScoreButtonMolecule
+          totalCount={counter}
+          handleUpVote={() => setCounter(counter + 1)}
+          handleDownVote={() => setCounter(counter - 1)}
         />
       </div>
     </>

@@ -2,22 +2,27 @@ import ButtonAtom from '@/components/atoms/buttonAtom/buttonAtom.component'
 import IconAtom, {
   IconSVGProps,
 } from '@/components/atoms/iconAtom/iconAtom.component'
-import React, { PropsWithChildren } from 'react'
+import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react'
 
-interface ButtonIconProps {
+interface ButtonIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconSVGProps
   colorType?: 'blue' | 'danger' | 'grayish'
+  onlyIcon?: boolean
+  customStyle?: string
 }
 
 const ButtonIconMolecule: React.FC<PropsWithChildren<ButtonIconProps>> = ({
   icon,
   colorType = 'blue',
+  onlyIcon = false,
+  customStyle,
   children,
+  ...rest
 }) => {
   return (
-    <ButtonAtom colorType={colorType} isLink>
+    <ButtonAtom className={customStyle} colorType={colorType} isLink {...rest}>
       <IconAtom {...icon} />
-      {children}
+      {!onlyIcon && children}
     </ButtonAtom>
   )
 }
