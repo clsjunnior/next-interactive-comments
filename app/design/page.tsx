@@ -1,4 +1,6 @@
 'use client'
+import { useState } from 'react'
+import ms from 'ms'
 
 import AvatarAtom from '@/components/atoms/avatarAtom/avatarAtom.component'
 import BadgeAtom from '@/components/atoms/badgeAtom/badgeAtom.component'
@@ -7,11 +9,10 @@ import CardAtom from '@/components/atoms/cardAtom/cardAtom.component'
 import IconAtom from '@/components/atoms/iconAtom/iconAtom.component'
 import TextareaAtom from '@/components/atoms/textareaAtom/textareaAtom.component'
 import ButtonIconMolecule from '@/components/molecules/buttonIconMolecule/buttonIconMolecule.component'
+import CommentInputMolecule from '@/components/molecules/commentInputMolecule/commentInputMolecule.component'
 import ModalMolecule from '@/components/molecules/modalMolecule/modalMolecule.component'
 import ScoreButtonMolecule from '@/components/molecules/scoreButtonMolecule/scoreButtonMolecule.component'
 import UserLabelMolecule from '@/components/molecules/userLabelMolecule/userLabelMolecule.component'
-import ms from 'ms'
-import { useState } from 'react'
 
 const Atoms = () => {
   const handleClick = () => {}
@@ -114,6 +115,15 @@ const Molecules = () => {
           totalCount={counter}
           handleUpVote={() => setCounter(counter + 1)}
           handleDownVote={() => setCounter(counter - 1)}
+        />
+      </div>
+
+      <div className="flex bg-white p-6 gap-4">
+        <CommentInputMolecule
+          avatarUser="clsjunnior"
+          avatarUrl="./avatars/image-juliusomo.png"
+          handleClick={() => console.log('send')}
+          textareaProps={{ onChange: (e) => console.log(e.target.value) }}
         />
       </div>
     </>
