@@ -4,7 +4,7 @@ interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 const TextareaAtom: React.FC<TextAreaProps> = ({
   placeholder = 'Add a comment...',
-  rows = 4,
+  rows = 2,
   ...rest
 }) => {
   return (

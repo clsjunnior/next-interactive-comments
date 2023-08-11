@@ -35,4 +35,15 @@ describe('ButtonAtom', () => {
 
     expect(onClickMock).toHaveBeenCalled()
   })
+
+  it('Should render button correctly as link', () => {
+    const { getByTestId } = render(
+      <ButtonAtom isLink={true}>Link Button</ButtonAtom>
+    )
+    const linkButtonElement = getByTestId('buttonAtom')
+
+    expect(linkButtonElement).toBeInTheDocument()
+    expect(linkButtonElement).toHaveTextContent('Link Button')
+    expect(linkButtonElement).toHaveClass('bg-transparent')
+  })
 })

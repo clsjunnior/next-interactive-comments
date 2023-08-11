@@ -10,11 +10,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const ButtonAtom: React.FC<ButtonProps> = ({
   colorType = 'blue',
   isLink = false,
+  className,
   children,
   ...rest
 }) => {
   const btnClass = clsx(
-    'hover:opacity-80 transition-opacity py-2 px-4 rounded',
+    'hover:opacity-80 transition-opacity py-2 px-6 rounded flex items-center gap-2 font-medium leading-normal',
     isLink
       ? {
           'bg-transparent': isLink,
@@ -27,7 +28,8 @@ const ButtonAtom: React.FC<ButtonProps> = ({
           'bg-moderate-blue': colorType === 'blue',
           'bg-soft-red': colorType === 'danger',
           'bg-grayish-blue': colorType === 'grayish',
-        }
+        },
+    className
   )
 
   return (

@@ -1,13 +1,13 @@
 import React from 'react'
 
-interface IconSVGProps {
+export interface IconSVGProps {
   type: 'delete' | 'reply' | 'edit' | 'minus' | 'plus'
   width?: number
   height?: number
   fill?: string
 }
 
-const Icon: React.FC<IconSVGProps> = ({
+const IconAtom: React.FC<IconSVGProps> = ({
   type,
   width = '24',
   height = '24',
@@ -55,4 +55,4 @@ const Icon: React.FC<IconSVGProps> = ({
   )
 }
 
-export default Icon
+export default IconAtom

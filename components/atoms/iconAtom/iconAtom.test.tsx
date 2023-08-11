@@ -1,12 +1,12 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import Icon from './iconAtom.component'
+import IconAtom from './iconAtom.component'
 
 describe('Icon Component', () => {
   it('should render delete icon', () => {
     const { getByTestId } = render(
-      <Icon type="delete" fill="#ED6368" width={12} height={14} />
+      <IconAtom type="delete" fill="#ED6368" width={12} height={14} />
     )
     const iconElement = getByTestId('icon-svg')
     expect(iconElement).toBeInTheDocument()
@@ -17,7 +17,7 @@ describe('Icon Component', () => {
 
   it('should render edit icon', () => {
     const { getByTestId } = render(
-      <Icon type="edit" fill="#5357B6" width={14} height={14} />
+      <IconAtom type="edit" fill="#5357B6" width={14} height={14} />
     )
     const iconElement = getByTestId('icon-svg')
     expect(iconElement).toBeInTheDocument()
@@ -28,7 +28,7 @@ describe('Icon Component', () => {
 
   it('should render minus icon', () => {
     const { getByTestId } = render(
-      <Icon type="minus" fill="#C5C6EF" width={11} height={3} />
+      <IconAtom type="minus" fill="#C5C6EF" width={11} height={3} />
     )
     const iconElement = getByTestId('icon-svg')
     expect(iconElement).toBeInTheDocument()
@@ -39,7 +39,7 @@ describe('Icon Component', () => {
 
   it('should render plus icon', () => {
     const { getByTestId } = render(
-      <Icon type="plus" fill="#C5C6EF" width={11} height={11} />
+      <IconAtom type="plus" fill="#C5C6EF" width={11} height={11} />
     )
     const iconElement = getByTestId('icon-svg')
     expect(iconElement).toBeInTheDocument()
@@ -50,7 +50,7 @@ describe('Icon Component', () => {
 
   it('should render reply icon', () => {
     const { getByTestId } = render(
-      <Icon type="reply" fill="#5357B6" width={14} height={13} />
+      <IconAtom type="reply" fill="#5357B6" width={14} height={13} />
     )
     const iconElement = getByTestId('icon-svg')
     expect(iconElement).toBeInTheDocument()

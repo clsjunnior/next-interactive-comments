@@ -54,18 +54,17 @@ Using Node to build a functional API using Prisma ORM with Postgres database to 
 
 | Component        | Develop        | Testing |
 |------------------|:--------------:|:------: |
-| User label       |       ⬜️       |    ⬜️   |
-| Modal            |       ⬜️       |    ⬜️   |
-| Icon Button      |       ⬜️       |    ⬜️   |
-| Score Button     |       ⬜️       |    ⬜️   |
+| User label       |       ✔️        |    ✔️    |
+| Modal            |       ✔️        |    ✔️    |
+| Icon Button      |       ✔️        |    ✔️    |
+| Score Button     |       ✔️        |    ✔️    |
+| Comment Input    |       ✔️        |    ✔️    |
 
 ### Organisms
 
 | Component               | Develop | Testing |
 |-------------------------|:--------------:|:--------:|
-| Delete Comments Modal   |        ⬜️       |    ⬜️   |
-| Add Comments Card       |        ⬜️       |    ⬜️   |
-| Nested Comments Content |        ⬜️       |    ⬜️   |
+| Comments Cards |        ⬜️       |    ⬜️   |
 
 ### Templates
 

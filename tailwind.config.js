@@ -15,6 +15,7 @@ module.exports = {
 			'light-gray': 'hsl(223, 19%, 93%)',
 			'light-grayish-blue': 'hsl(239, 57%, 85%)',
 			'grayish-blue': 'hsl(211, 10%, 45%)',
+			'grayish-blue-fonts': 'hsl(211, 10%, 75%)',
 			'dark-blue': 'hsl(212, 24%, 26%)',
 		},
 	},
