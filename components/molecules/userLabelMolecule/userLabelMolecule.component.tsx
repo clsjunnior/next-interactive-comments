@@ -37,7 +37,7 @@ const UserLabelMolecule: React.FC<UserLabelProps> = ({
     <div className="flex items-center gap-4">
       <AvatarAtom imageUrl={imageUrl} altText={username} />
       <span className="font-bold text-dark-blue">{username}</span>
-      <span className="font-medium text-grayish-blue-fonts text-sm">
+      <span className="font-normal text-grayish-blue-fonts text-sm">
         {timeAgoFromNow(createdAt)}
       </span>
     </div>

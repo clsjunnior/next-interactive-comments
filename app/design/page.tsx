@@ -13,6 +13,9 @@ import CommentInputMolecule from '@/components/molecules/commentInputMolecule/co
 import ModalMolecule from '@/components/molecules/modalMolecule/modalMolecule.component'
 import ScoreButtonMolecule from '@/components/molecules/scoreButtonMolecule/scoreButtonMolecule.component'
 import UserLabelMolecule from '@/components/molecules/userLabelMolecule/userLabelMolecule.component'
+import CommentCardOrganism, {
+  CommentCardOrganismProps,
+} from '@/components/organisms/commentCardOrganism/commentCardOrganism.component'
 
 const Atoms = () => {
   const handleClick = () => {}
@@ -130,18 +133,58 @@ const Molecules = () => {
   )
 }
 
+const Organisms = () => {
+  const [counter, setCounter] = useState(10)
+  const commentProps: CommentCardOrganismProps = {
+    comment: {
+      username: 'celso',
+      avatar: './avatars/image-amyrobson.png',
+      createdAt: new Date(),
+      commentText: 'test comment',
+    },
+    reply: {
+      handleReply: () => console.log('reply'),
+    },
+    score: {
+      counter: counter,
+      handleUpVote: () => setCounter(counter + 1),
+      handleDownVote: () => setCounter(counter - 1),
+    },
+  }
+
+  return (
+    <>
+      <div className="flex bg-white p-2 gap-4">
+        <CommentCardOrganism {...commentProps} />
+      </div>
+    </>
+  )
+}
+
 export default function Design() {
   return (
-    <main className="flex flex-col items-start justify-between py-12 px-24">
-      <h1 className="text-2xl text-moderate-blue font-semibold mb-4">Atoms</h1>
-      <div className="flex flex-col gap-6">
-        <Atoms />
+    <main className="flex flex-row items-start justify-between py-12 px-24 gap-6">
+      <div className="flex flex-col flex-1">
+        <h1 className="text-2xl text-moderate-blue font-semibold mb-4">
+          Atoms
+        </h1>
+        <div className="flex flex-col gap-6">
+          <Atoms />
+        </div>
+        <h1 className="text-2xl text-moderate-blue font-semibold my-6">
+          Molecules
+        </h1>
+        <div className="flex flex-col gap-6">
+          <Molecules />
+        </div>
       </div>
-      <h1 className="text-2xl text-moderate-blue font-semibold my-6">
-        Molecules
-      </h1>
-      <div className="flex flex-col gap-6">
-        <Molecules />
+      <div className="flex flex-col flex-1">
+        <h1 className="text-2xl text-moderate-blue font-semibold mb-4">
+          Organisms
+        </h1>
+        <div className="flex flex-col gap-6">
+          <Organisms />
+        </div>
       </div>
     </main>
   )
