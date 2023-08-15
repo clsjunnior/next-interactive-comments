@@ -62,9 +62,9 @@ Using Node to build a functional API using Prisma ORM with Postgres database to 
 
 ### Organisms
 
-| Component               | Develop | Testing |
-|-------------------------|:--------------:|:--------:|
-| Comments Cards |        ⬜️       |    ⬜️   |
+| Component      | Develop         | Testing |
+|----------------|:---------------:|:-------:|
+| Comments Cards |        ✔️        |    ✔️    |
 
 ### Templates
 

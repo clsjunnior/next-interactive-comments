@@ -1,0 +1,90 @@
+import React from 'react'
+import { render, screen, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
+import CommentCardOrganism from './commentCardOrganism.component'
+
+describe('CommentCardOrganism', () => {
+  const mockComment = {
+    username: 'user123',
+    avatar: 'mock-avatar-url',
+    createdAt: new Date(),
+    commentText: 'This is a test comment.',
+  }
+  const mockScore = {
+    counter: 42,
+    handleUpVote: jest.fn(),
+    handleDownVote: jest.fn(),
+  }
+  const mockReply = {
+    handleReply: jest.fn(),
+  }
+
+  it('Should render comment card correctly with provided props', () => {
+    render(
+      <CommentCardOrganism
+        comment={mockComment}
+        score={mockScore}
+        reply={mockReply}
+      />
+    )
+
+    const usernameElement = screen.getByText('user123')
+    const avatarElement = screen.getByAltText('user123')
+    const createdAtElement = screen.getByText('just now')
+    const commentTextElement = screen.getByText('This is a test comment.')
+    const scoreButton = screen.getByTestId('score-button-molecule')
+    const replyButton = screen.getByText('Reply')
+
+    expect(usernameElement).toBeInTheDocument()
+    expect(avatarElement).toBeInTheDocument()
+    expect(createdAtElement).toBeInTheDocument()
+    expect(commentTextElement).toBeInTheDocument()
+    expect(scoreButton).toBeInTheDocument()
+    expect(replyButton).toBeInTheDocument()
+  })
+
+  it('Should call handleUpVote when up vote button is clicked', () => {
+    render(
+      <CommentCardOrganism
+        comment={mockComment}
+        score={mockScore}
+        reply={mockReply}
+      />
+    )
+
+    const upVoteButton = screen.getByTitle('Up Vote')
+    fireEvent.click(upVoteButton)
+
+    expect(mockScore.handleUpVote).toHaveBeenCalled()
+  })
+
+  it('Should call handleDownVote when down vote button is clicked', () => {
+    render(
+      <CommentCardOrganism
+        comment={mockComment}
+        score={mockScore}
+        reply={mockReply}
+      />
+    )
+
+    const downVoteButton = screen.getByTitle('Down Vote')
+    fireEvent.click(downVoteButton)
+
+    expect(mockScore.handleDownVote).toHaveBeenCalled()
+  })
+
+  it('Should call handleReply when reply button is clicked', () => {
+    render(
+      <CommentCardOrganism
+        comment={mockComment}
+        score={mockScore}
+        reply={mockReply}
+      />
+    )
+
+    const replyButton = screen.getByText('Reply')
+    fireEvent.click(replyButton)
+
+    expect(mockReply.handleReply).toHaveBeenCalled()
+  })
+})

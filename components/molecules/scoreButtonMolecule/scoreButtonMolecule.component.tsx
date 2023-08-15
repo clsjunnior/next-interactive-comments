@@ -14,11 +14,11 @@ const ScoreButtonMolecule: React.FC<ScoreButtonIconProps> = ({
 }) => {
   return (
     <div
-      className="flex flex-col items-center justify-between rounded-lg bg-very-light-gray"
+      className="flex flex-col h-fit w-auto items-center justify-between rounded-lg bg-very-light-gray"
       data-testid="score-button-molecule"
     >
       <ButtonIconMolecule
-        customStyle="min-h-[32px]"
+        customStyle="min-h-[32px] pr-4 pl-4"
         icon={{ type: 'plus', fill: '#C5C6EF', width: 11, height: 14 }}
         onlyIcon
         onClick={handleUpVote}
@@ -28,7 +28,7 @@ const ScoreButtonMolecule: React.FC<ScoreButtonIconProps> = ({
         {totalCount}
       </span>
       <ButtonIconMolecule
-        customStyle="min-h-[32px]"
+        customStyle="min-h-[32px] pr-4 pl-4"
         icon={{ type: 'minus', fill: '#C5C6EF', width: 11, height: 3 }}
         onlyIcon
         onClick={handleDownVote}
