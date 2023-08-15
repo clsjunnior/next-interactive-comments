@@ -18,6 +18,12 @@ describe('CommentCardOrganism', () => {
   const mockReply = {
     handleReply: jest.fn(),
   }
+  const mockDeleteComment = {
+    handleDeleteCallback: jest.fn(),
+  }
+  const mockEditComment = {
+    handleEditCallback: jest.fn(),
+  }
 
   it('Should render comment card correctly with provided props', () => {
     render(
@@ -86,5 +92,104 @@ describe('CommentCardOrganism', () => {
     fireEvent.click(replyButton)
 
     expect(mockReply.handleReply).toHaveBeenCalled()
+  })
+
+  it('Should render comment card correctly with delete and edit buttons for current user', () => {
+    render(
+      <CommentCardOrganism
+        comment={{ ...mockComment, isCurrentUser: true }}
+        score={mockScore}
+        reply={mockReply}
+        deleteComment={mockDeleteComment}
+        editComment={mockEditComment}
+      />
+    )
+
+    const deleteButton = screen.getByText('Delete')
+    const editButton = screen.getByText('Edit')
+
+    expect(deleteButton).toBeInTheDocument()
+    expect(editButton).toBeInTheDocument()
+  })
+
+  it('Should call handleDeleteCallback when delete button is clicked', () => {
+    render(
+      <CommentCardOrganism
+        comment={{ ...mockComment, isCurrentUser: true }}
+        score={mockScore}
+        reply={mockReply}
+        deleteComment={mockDeleteComment}
+        editComment={mockEditComment}
+      />
+    )
+
+    const deleteButton = screen.getByText('Delete')
+    fireEvent.click(deleteButton)
+
+    expect(mockDeleteComment.handleDeleteCallback).toHaveBeenCalled()
+  })
+
+  it('Should call handleEditCallback and switch to edit mode when edit button is clicked', () => {
+    render(
+      <CommentCardOrganism
+        comment={{ ...mockComment, isCurrentUser: true }}
+        score={mockScore}
+        reply={mockReply}
+        deleteComment={mockDeleteComment}
+        editComment={mockEditComment}
+      />
+    )
+
+    const editButton = screen.getByText('Edit')
+    fireEvent.click(editButton)
+
+    const updateButton = screen.getByText('Update')
+    expect(updateButton).toBeInTheDocument()
+  })
+
+  it('Should call handleEditCallback and set isEdit to false when handleUpdate is called', () => {
+    render(
+      <CommentCardOrganism
+        comment={{ ...mockComment, isCurrentUser: true }}
+        score={mockScore}
+        reply={mockReply}
+        deleteComment={mockDeleteComment}
+        editComment={mockEditComment}
+      />
+    )
+
+    const editButton = screen.getByText('Edit')
+    fireEvent.click(editButton)
+
+    const updateButton = screen.getByText('Update')
+    expect(updateButton).toBeInTheDocument()
+
+    fireEvent.click(updateButton)
+
+    expect(mockEditComment.handleEditCallback).toHaveBeenCalled()
+
+    const updatedButton = screen.queryByText('Update')
+    expect(updatedButton).not.toBeInTheDocument()
+  })
+
+  it('Should update updateInput state when handleChangeInput is called', () => {
+    render(
+      <CommentCardOrganism
+        comment={{ ...mockComment, isCurrentUser: true }}
+        score={mockScore}
+        reply={mockReply}
+        deleteComment={mockDeleteComment}
+        editComment={mockEditComment}
+      />
+    )
+
+    const editButton = screen.getByText('Edit')
+    fireEvent.click(editButton)
+
+    const textareaElement = screen.getByRole('textbox')
+
+    fireEvent.change(textareaElement, { target: { value: 'Updated comment' } })
+
+    expect(textareaElement).toHaveValue('Updated comment')
   })
 })

@@ -137,7 +137,7 @@ const Organisms = () => {
   const [counter, setCounter] = useState(10)
   const commentProps: CommentCardOrganismProps = {
     comment: {
-      username: 'celso',
+      username: 'johnDoe',
       avatar: './avatars/image-amyrobson.png',
       createdAt: new Date(),
       commentText: 'test comment',
@@ -154,8 +154,20 @@ const Organisms = () => {
 
   return (
     <>
-      <div className="flex bg-white p-2 gap-4">
+      <div className="flex flex-col p-2 gap-2">
         <CommentCardOrganism {...commentProps} />
+        <CommentCardOrganism
+          {...commentProps}
+          comment={{
+            username: 'clsjunnior',
+            avatar: './avatars/image-amyrobson.png',
+            createdAt: new Date(),
+            commentText: 'test comment',
+            isCurrentUser: true,
+          }}
+          editComment={{ handleEditCallback: () => console.log('edit') }}
+          deleteComment={{ handleDeleteCallback: () => console.log('delete') }}
+        />
       </div>
     </>
   )
