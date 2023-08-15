@@ -15,7 +15,7 @@ const ButtonAtom: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   const btnClass = clsx(
-    'hover:opacity-80 transition-opacity py-2 px-6 rounded flex items-center gap-2 font-medium leading-normal',
+    'hover:opacity-80 transition-opacity py-2 px-6 rounded flex items-center gap-2 font-medium leading-normal disabled:opacity-30',
     isLink
       ? {
           'bg-transparent': isLink,

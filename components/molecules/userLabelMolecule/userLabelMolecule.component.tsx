@@ -1,4 +1,5 @@
 import AvatarAtom from '@/components/atoms/avatarAtom/avatarAtom.component'
+import BadgeAtom from '@/components/atoms/badgeAtom/badgeAtom.component'
 import ms from 'ms'
 import React from 'react'
 
@@ -6,12 +7,14 @@ interface UserLabelProps {
   imageUrl: string
   username: string
   createdAt: Date
+  isCurrentUser?: boolean
 }
 
 const UserLabelMolecule: React.FC<UserLabelProps> = ({
   imageUrl,
   username,
   createdAt,
+  isCurrentUser,
 }) => {
   function timeAgoFromNow(createdAt: Date): string {
     const now = new Date()
@@ -36,7 +39,10 @@ const UserLabelMolecule: React.FC<UserLabelProps> = ({
   return (
     <div className="flex items-center gap-4">
       <AvatarAtom imageUrl={imageUrl} altText={username} />
-      <span className="font-bold text-dark-blue">{username}</span>
+      <div className="flex items-center gap-2">
+        <span className="font-bold text-dark-blue">{username}</span>
+        {isCurrentUser && <BadgeAtom />}
+      </div>
       <span className="font-normal text-grayish-blue-fonts text-sm">
         {timeAgoFromNow(createdAt)}
       </span>

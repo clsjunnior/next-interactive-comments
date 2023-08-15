@@ -45,4 +45,17 @@ describe('CommentInputMolecule', () => {
 
     expect(mockHandleClick).toHaveBeenCalled()
   })
+
+  it('Should render "Update" text on the button when isUpdateField is true', () => {
+    render(
+      <CommentInputMolecule
+        isUpdateField
+        handleClick={mockHandleClick}
+        textareaProps={mockTextareaProps}
+      />
+    )
+
+    const updateButton = screen.getByText('Update')
+    expect(updateButton).toBeInTheDocument()
+  })
 })
