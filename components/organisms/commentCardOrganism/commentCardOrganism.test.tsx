@@ -146,4 +146,50 @@ describe('CommentCardOrganism', () => {
     const updateButton = screen.getByText('Update')
     expect(updateButton).toBeInTheDocument()
   })
+
+  it('Should call handleEditCallback and set isEdit to false when handleUpdate is called', () => {
+    render(
+      <CommentCardOrganism
+        comment={{ ...mockComment, isCurrentUser: true }}
+        score={mockScore}
+        reply={mockReply}
+        deleteComment={mockDeleteComment}
+        editComment={mockEditComment}
+      />
+    )
+
+    const editButton = screen.getByText('Edit')
+    fireEvent.click(editButton)
+
+    const updateButton = screen.getByText('Update')
+    expect(updateButton).toBeInTheDocument()
+
+    fireEvent.click(updateButton)
+
+    expect(mockEditComment.handleEditCallback).toHaveBeenCalled()
+
+    const updatedButton = screen.queryByText('Update')
+    expect(updatedButton).not.toBeInTheDocument()
+  })
+
+  it('Should update updateInput state when handleChangeInput is called', () => {
+    render(
+      <CommentCardOrganism
+        comment={{ ...mockComment, isCurrentUser: true }}
+        score={mockScore}
+        reply={mockReply}
+        deleteComment={mockDeleteComment}
+        editComment={mockEditComment}
+      />
+    )
+
+    const editButton = screen.getByText('Edit')
+    fireEvent.click(editButton)
+
+    const textareaElement = screen.getByRole('textbox')
+
+    fireEvent.change(textareaElement, { target: { value: 'Updated comment' } })
+
+    expect(textareaElement).toHaveValue('Updated comment')
+  })
 })
